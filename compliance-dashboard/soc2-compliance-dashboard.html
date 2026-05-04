@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC 2 Compliance Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px; background: #f5f5f5; color: #333;
+        }
+        h1 { color: #1B3A6B; border-bottom: 3px solid #1B3A6B; padding-bottom: 10px; }
+        h2 { color: #2E75B6; margin-top: 30px; }
+        .meta {
+            background: #1B3A6B; color: white;
+            padding: 15px 20px; border-radius: 6px; margin-bottom: 25px;
+        }
+        .meta p { margin: 4px 0; }
+        .grid4 {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 15px; margin-bottom: 20px;
+        }
+        .grid3 {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 15px; margin-bottom: 30px;
+        }
+        .card {
+            padding: 20px; border-radius: 8px;
+            text-align: center; color: white; font-weight: bold;
+        }
+        .card .number { font-size: 2.5em; display: block; }
+        .readiness-bar {
+            background: #ddd; border-radius: 10px;
+            height: 30px; margin: 10px 0; overflow: hidden;
+        }
+        .readiness-fill {
+            height: 100%; border-radius: 10px;
+            background: linear-gradient(90deg, #ff4444, #ff8800, #44bb44);
+            display: flex; align-items: center;
+            justify-content: center; color: white;
+            font-weight: bold; font-size: 0.9em;
+        }
+        .cat-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 15px; margin-bottom: 30px;
+        }
+        .cat-card {
+            background: white; border-radius: 8px;
+            padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .cat-card h4 {
+            margin: 0 0 10px 0; color: #1B3A6B; font-size: 0.9em;
+        }
+        .cat-bar {
+            display: flex; height: 12px; border-radius: 6px;
+            overflow: hidden; margin-bottom: 6px;
+        }
+        table {
+            width: 100%; border-collapse: collapse;
+            background: white; border-radius: 8px;
+            overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        th {
+            background: #1B3A6B; color: white;
+            padding: 12px 15px; text-align: left; font-size: 0.88em;
+        }
+        td {
+            padding: 10px 15px; border-bottom: 1px solid #eee;
+            font-size: 0.83em;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f9f9f9; }
+        .badge {
+            padding: 3px 8px; border-radius: 10px;
+            color: white; font-weight: bold;
+            font-size: 0.8em; display: inline-block;
+        }
+        .footer {
+            margin-top: 40px; text-align: center;
+            color: #888; font-size: 0.85em;
+            border-top: 1px solid #ddd; padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SOC 2 + NIST CSF Compliance Dashboard</h1>
+    <div class="meta">
+        <p><strong>Author:</strong> Mckintosh Mpumelelo Moyo</p>
+        <p><strong>Program:</strong> MS Cybersecurity — Yeshiva University, Katz School</p>
+        <p><strong>Frameworks:</strong> SOC 2 Trust Service Criteria | NIST CSF 2.0</p>
+        <p><strong>Generated:</strong> May 04, 2026</p>
+        <p><strong>Total Controls:</strong> 24 | <strong>Audit Readiness:</strong> 27%</p>
+    </div>
+
+    <h2>Overall Compliance Status</h2>
+    <div class="grid4">
+        <div class="card" style="background:#44bb44;">
+            <span class="number">1</span>Fully Met
+        </div>
+        <div class="card" style="background:#ff8800;">
+            <span class="number">11</span>Partially Met
+        </div>
+        <div class="card" style="background:#ff4444;">
+            <span class="number">12</span>Not Met
+        </div>
+        <div class="card" style="background:#888888;">
+            <span class="number">0</span>N/A
+        </div>
+    </div>
+
+    <h2>Audit Readiness Score</h2>
+    <div class="readiness-bar">
+        <div class="readiness-fill" style="width:27%">
+            27% Ready
+        </div>
+    </div>
+    <p style="color:#888;font-size:0.85em">
+        Score calculated as: (Fully Met + Partially Met x 0.5) / Total Controls
+    </p>
+
+    <h2>Compliance by Category</h2>
+    <div class="cat-grid">
+
+        <div class="cat-card">
+            <h4>Logical Access (CC6)</h4>
+            <div class="cat-bar">
+                <div style="width:0%;background:#44bb44"></div>
+                <div style="width:62%;background:#ff8800"></div>
+                <div style="width:38%;background:#ff4444"></div>
+            </div>
+            <div style="font-size:0.8em;color:#666">
+                FM: 0 | PM: 5 | NM: 3 | Total: 8
+            </div>
+        </div>
+
+        <div class="cat-card">
+            <h4>System Operations (CC7)</h4>
+            <div class="cat-bar">
+                <div style="width:0%;background:#44bb44"></div>
+                <div style="width:20%;background:#ff8800"></div>
+                <div style="width:80%;background:#ff4444"></div>
+            </div>
+            <div style="font-size:0.8em;color:#666">
+                FM: 0 | PM: 1 | NM: 4 | Total: 5
+            </div>
+        </div>
+
+        <div class="cat-card">
+            <h4>Change Management (CC8)</h4>
+            <div class="cat-bar">
+                <div style="width:0%;background:#44bb44"></div>
+                <div style="width:0%;background:#ff8800"></div>
+                <div style="width:100%;background:#ff4444"></div>
+            </div>
+            <div style="font-size:0.8em;color:#666">
+                FM: 0 | PM: 0 | NM: 2 | Total: 2
+            </div>
+        </div>
+
+        <div class="cat-card">
+            <h4>Risk Management (CC9)</h4>
+            <div class="cat-bar">
+                <div style="width:0%;background:#44bb44"></div>
+                <div style="width:100%;background:#ff8800"></div>
+                <div style="width:0%;background:#ff4444"></div>
+            </div>
+            <div style="font-size:0.8em;color:#666">
+                FM: 0 | PM: 2 | NM: 0 | Total: 2
+            </div>
+        </div>
+
+        <div class="cat-card">
+            <h4>Availability (A1)</h4>
+            <div class="cat-bar">
+                <div style="width:33%;background:#44bb44"></div>
+                <div style="width:33%;background:#ff8800"></div>
+                <div style="width:33%;background:#ff4444"></div>
+            </div>
+            <div style="font-size:0.8em;color:#666">
+                FM: 1 | PM: 1 | NM: 1 | Total: 3
+            </div>
+        </div>
+
+        <div class="cat-card">
+            <h4>Confidentiality (C1)</h4>
+            <div class="cat-bar">
+                <div style="width:0%;background:#44bb44"></div>
+                <div style="width:0%;background:#ff8800"></div>
+                <div style="width:100%;background:#ff4444"></div>
+            </div>
+            <div style="font-size:0.8em;color:#666">
+                FM: 0 | PM: 0 | NM: 2 | Total: 2
+            </div>
+        </div>
+
+        <div class="cat-card">
+            <h4>Processing Integrity (PI1)</h4>
+            <div class="cat-bar">
+                <div style="width:0%;background:#44bb44"></div>
+                <div style="width:100%;background:#ff8800"></div>
+                <div style="width:0%;background:#ff4444"></div>
+            </div>
+            <div style="font-size:0.8em;color:#666">
+                FM: 0 | PM: 2 | NM: 0 | Total: 2
+            </div>
+        </div>
+
+    </div>
+
+    <h2>Full Control Register</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Control</th>
+                <th>NIST</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Gap</th>
+                <th>Action Required</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td><strong>CC6.1</strong></td>
+                <td style="font-size:0.82em">Logical Access (CC6)</td>
+                <td style="max-width:180px">Logical access security measures restrict access</td>
+                <td><strong>PR.AA-05</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ff4444">Critical</span></td>
+                <td style="font-size:0.82em;max-width:180px">Service accounts overprivileged. No least privilege enforcement.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement least privilege roles. Remove excess permissions.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC6.2</strong></td>
+                <td style="font-size:0.82em">Logical Access (CC6)</td>
+                <td style="max-width:180px">New users are registered and authorized before credentials issued</td>
+                <td><strong>PR.AA-01</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">No formal access approval workflow documented.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement formal access request and approval workflow.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC6.3</strong></td>
+                <td style="font-size:0.82em">Logical Access (CC6)</td>
+                <td style="max-width:180px">Access is removed when no longer needed</td>
+                <td><strong>PR.AA-01</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff4444">Critical</span></td>
+                <td style="font-size:0.82em;max-width:180px">No formal offboarding. Former employee accounts not disabled.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement automated account deprovisioning tied to HR system.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC6.4</strong></td>
+                <td style="font-size:0.82em">Logical Access (CC6)</td>
+                <td style="max-width:180px">Access credentials are reviewed periodically</td>
+                <td><strong>PR.AA-05</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff4444">Critical</span></td>
+                <td style="font-size:0.82em;max-width:180px">No periodic access reviews conducted.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement quarterly access reviews with manager attestation.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC6.5</strong></td>
+                <td style="font-size:0.82em">Logical Access (CC6)</td>
+                <td style="max-width:180px">Logical access controls restrict access to confidential data</td>
+                <td><strong>PR.DS-01</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">Encryption inconsistent across all data stores.</td>
+                <td style="font-size:0.82em;max-width:180px">Apply encryption consistently across all confidential data stores.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC6.6</strong></td>
+                <td style="font-size:0.82em">Logical Access (CC6)</td>
+                <td style="max-width:180px">Logical access is restricted from outside system boundaries</td>
+                <td><strong>PR.AA-03</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff4444">Critical</span></td>
+                <td style="font-size:0.82em;max-width:180px">VPN not enforced. MFA not implemented for all users.</td>
+                <td style="font-size:0.82em;max-width:180px">Enforce MFA for all accounts. Require VPN for remote access.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC6.7</strong></td>
+                <td style="font-size:0.82em">Logical Access (CC6)</td>
+                <td style="max-width:180px">Transmission of confidential information is encrypted</td>
+                <td><strong>PR.DS-02</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">Some internal services use unencrypted HTTP.</td>
+                <td style="font-size:0.82em;max-width:180px">Enforce TLS 1.2 minimum for all communication.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC6.8</strong></td>
+                <td style="font-size:0.82em">Logical Access (CC6)</td>
+                <td style="max-width:180px">Controls prevent unauthorized access to system components</td>
+                <td><strong>PR.PS-01</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">Hardening not consistently applied to embedded devices.</td>
+                <td style="font-size:0.82em;max-width:180px">Apply CIS hardening benchmarks to all embedded platforms.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC7.1</strong></td>
+                <td style="font-size:0.82em">System Operations (CC7)</td>
+                <td style="max-width:180px">Vulnerability management detects new vulnerabilities</td>
+                <td><strong>DE.CM-08</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff4444">Critical</span></td>
+                <td style="font-size:0.82em;max-width:180px">No formal vulnerability management program.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement CVE tracking and vulnerability management program.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC7.2</strong></td>
+                <td style="font-size:0.82em">System Operations (CC7)</td>
+                <td style="max-width:180px">System monitors for anomalies and indicators of compromise</td>
+                <td><strong>DE.CM-01</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff4444">Critical</span></td>
+                <td style="font-size:0.82em;max-width:180px">No SIEM deployed. Limited logging. No alerting.</td>
+                <td style="font-size:0.82em;max-width:180px">Deploy SIEM. Enable logging. Configure alert rules.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC7.3</strong></td>
+                <td style="font-size:0.82em">System Operations (CC7)</td>
+                <td style="max-width:180px">Security events are communicated to appropriate personnel</td>
+                <td><strong>DE.AE-02</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">No incident escalation process documented.</td>
+                <td style="font-size:0.82em;max-width:180px">Document incident escalation procedures with defined SLAs.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC7.4</strong></td>
+                <td style="font-size:0.82em">System Operations (CC7)</td>
+                <td style="max-width:180px">Security incidents are identified and responded to</td>
+                <td><strong>RS.MA-01</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">No hardware-specific incident response procedures.</td>
+                <td style="font-size:0.82em;max-width:180px">Develop hardware-specific incident response playbooks.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC7.5</strong></td>
+                <td style="font-size:0.82em">System Operations (CC7)</td>
+                <td style="max-width:180px">Incident response is evaluated and improvements made</td>
+                <td><strong>RC.IM-01</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ccaa00">Medium</span></td>
+                <td style="font-size:0.82em;max-width:180px">No post-incident review process.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement post-incident review with documented lessons learned.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC8.1</strong></td>
+                <td style="font-size:0.82em">Change Management (CC8)</td>
+                <td style="max-width:180px">Changes to infrastructure are authorized and managed</td>
+                <td><strong>PR.PS-01</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff4444">Critical</span></td>
+                <td style="font-size:0.82em;max-width:180px">No formal change management process.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement formal change management with approval workflows.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC8.2</strong></td>
+                <td style="font-size:0.82em">Change Management (CC8)</td>
+                <td style="max-width:180px">Emergency changes are authorized and documented</td>
+                <td><strong>PR.PS-01</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">No emergency change process or documentation.</td>
+                <td style="font-size:0.82em;max-width:180px">Define and implement emergency change procedures.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC9.1</strong></td>
+                <td style="font-size:0.82em">Risk Management (CC9)</td>
+                <td style="max-width:180px">Risk assessment identifies threats and vulnerabilities</td>
+                <td><strong>ID.RA-01</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">Risk assessment does not cover embedded hardware.</td>
+                <td style="font-size:0.82em;max-width:180px">Extend risk assessment to include hardware threat modeling.</td>
+            </tr>
+
+            <tr>
+                <td><strong>CC9.2</strong></td>
+                <td style="font-size:0.82em">Risk Management (CC9)</td>
+                <td style="max-width:180px">Risk mitigation activities are implemented</td>
+                <td><strong>ID.RA-06</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">No formal risk register maintained.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement and maintain formal risk register with tracking.</td>
+            </tr>
+
+            <tr>
+                <td><strong>A1.1</strong></td>
+                <td style="font-size:0.82em">Availability (A1)</td>
+                <td style="max-width:180px">Availability commitments are communicated to users</td>
+                <td><strong>GV.OC-01</strong></td>
+                <td><span class="badge" style="background:#44bb44">Fully Met</span></td>
+                <td><span class="badge" style="background:#888888">—</span></td>
+                <td style="font-size:0.82em;max-width:180px">None — fully met.</td>
+                <td style="font-size:0.82em;max-width:180px">No action required.</td>
+            </tr>
+
+            <tr>
+                <td><strong>A1.2</strong></td>
+                <td style="font-size:0.82em">Availability (A1)</td>
+                <td style="max-width:180px">System performance is monitored</td>
+                <td><strong>DE.CM-09</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ccaa00">Medium</span></td>
+                <td style="font-size:0.82em;max-width:180px">No capacity planning process.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement capacity planning and performance trend analysis.</td>
+            </tr>
+
+            <tr>
+                <td><strong>A1.3</strong></td>
+                <td style="font-size:0.82em">Availability (A1)</td>
+                <td style="max-width:180px">Recovery plan is tested</td>
+                <td><strong>RC.RP-01</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff4444">Critical</span></td>
+                <td style="font-size:0.82em;max-width:180px">DR plan never tested. No evidence of recovery testing.</td>
+                <td style="font-size:0.82em;max-width:180px">Conduct annual DR test and document results as audit evidence.</td>
+            </tr>
+
+            <tr>
+                <td><strong>C1.1</strong></td>
+                <td style="font-size:0.82em">Confidentiality (C1)</td>
+                <td style="max-width:180px">Confidential information is identified and classified</td>
+                <td><strong>ID.AM-05</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">No data classification policy.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement data classification policy and labeling procedures.</td>
+            </tr>
+
+            <tr>
+                <td><strong>C1.2</strong></td>
+                <td style="font-size:0.82em">Confidentiality (C1)</td>
+                <td style="max-width:180px">Confidential information is protected during disposal</td>
+                <td><strong>PR.DS-03</strong></td>
+                <td><span class="badge" style="background:#ff4444">Not Met</span></td>
+                <td><span class="badge" style="background:#ff8800">High</span></td>
+                <td style="font-size:0.82em;max-width:180px">No secure disposal procedures for hardware.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement secure hardware disposal and data destruction procedures.</td>
+            </tr>
+
+            <tr>
+                <td><strong>PI1.1</strong></td>
+                <td style="font-size:0.82em">Processing Integrity (PI1)</td>
+                <td style="max-width:180px">Processing is complete accurate and timely</td>
+                <td><strong>PR.DS-10</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ccaa00">Medium</span></td>
+                <td style="font-size:0.82em;max-width:180px">No end-to-end integrity verification.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement cryptographic integrity verification for data pipelines.</td>
+            </tr>
+
+            <tr>
+                <td><strong>PI1.2</strong></td>
+                <td style="font-size:0.82em">Processing Integrity (PI1)</td>
+                <td style="max-width:180px">Processing errors are identified and corrected</td>
+                <td><strong>RS.AN-03</strong></td>
+                <td><span class="badge" style="background:#ff8800">Partially Met</span></td>
+                <td><span class="badge" style="background:#ccaa00">Medium</span></td>
+                <td style="font-size:0.82em;max-width:180px">No formal error review process.</td>
+                <td style="font-size:0.82em;max-width:180px">Implement formal error review and correction process.</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="footer">
+        <p>SOC 2 + NIST CSF Compliance Gap Analysis Dashboard</p>
+        <p>Mckintosh Mpumelelo Moyo — MS Cybersecurity, Yeshiva University</p>
+        <p>Frameworks: SOC 2 Trust Service Criteria | NIST CSF 2.0</p>
+    </div>
+</body>
+</html>
